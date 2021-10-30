@@ -20,4 +20,4 @@ echo "Removing class-files"
 rm *.class
 ls 
 
-exec bash
+#exec bash

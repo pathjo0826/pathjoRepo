@@ -69,7 +69,7 @@ while(true){
 	if(reply.equals("T") || reply.equals("F")){
 	return reply;}
 	else{
-	System.out.println("That was not an acceptable answer. Please anser T or F");
+	System.out.println("That was not an acceptable answer. Please answer T or F");
         }
 
      }
