@@ -59,5 +59,12 @@ En uppdaterad version av Spel.java ligger i staging area. Men just nu arbetar du
 i working directory. Av någon anledning är du missnöjd med dina ändringar i Spelare.java och vill återställa till senast
 sparade version. Du gör en "git reset --hard". Detta återställer både staging area och working directory till senaste 
 commit:en från ditt repository. Alla dina ändringar, både i Spel.java och Spelare.java går förlorade och KAN EJ ÅTERSTÄLLAS. 
+Din git status kommer att vara "ren". git log kommer ej registrera din git reset --hard.
 
+git reset (=git reset --mixed): Återställer endast staging area till senaste commit:en.
+Scenario: Du har Spel.java sparat i ditt repository sedan tidigare. Just nu arbetar du med förbättringar på Spel.java samt
+skriver en helt ny fil, instruktion.txt, med instruktioner till spelet. Båda filerna ligger i staging area. Kör du en 
+git reset --mixed kommer staging area att återställas till senaste commit:en. Det betyder att du kommer att förlora dina
+förbättringar i Spel.java. instruktion.txt kommer bli en "untracked file" eftersom den i senaste commit:en inte existerade.
+Du kommer dock inte förlora filen från datorn.
 
