@@ -44,11 +44,20 @@ Gör en ny commit som ångrar en redan gjort commit
 Scenario: Tänk scenariot ovan med Spel.java att du av någon outgrundligt dum anledning ändå commitade ändringarna med
 din trasiga kod. Inte bara förstörde du din kod, du commitade den också. Men lugn, git revert kan rädda kvällen.
 Först, skriva "git log --oneline" för att få den 7-tecken långa hashcode som hör till den commit du vill ångra. Sedan,
-skriv "git revert <hashcode>". Din git revert kommer att loggas och dyka upp i git log. git status kommer vara "ren", det
-är inget du behöver commita.
+skriv "git revert <hashcode>". Du har nu ångrat din tanklösa commit och ditt repository är tillbaka med versionen innan.
+Din git revert kommer att loggas och dyka upp i git log. git status kommer vara "ren", det är inget mer du behöver commita.
   
 
 
 git reset
+
+Kommandot kan kallas på tre olika sätt, reset --hard, reset --mixed (= reset utan flagga), reset --soft.
+
+git reset --hard: Återställer working directory och staging area till den senaste commit:en.
+Scenario: Du arbetar brett med både Spel.java och Spelare.java. Versioner av båda filerna är sparade i ditt repository.
+En uppdaterad version av Spel.java ligger i staging area. Men just nu arbetar du på Spelare.java, som ligger
+i working directory. Av någon anledning är du missnöjd med dina ändringar i Spelare.java och vill återställa till senast
+sparade version. Du gör en "git reset --hard". Detta återställer både staging area och working directory till senaste 
+commit:en från ditt repository. Alla dina ändringar, både i Spel.java och Spelare.java går förlorade och KAN EJ ÅTERSTÄLLAS. 
 
 
