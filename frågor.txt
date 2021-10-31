@@ -23,6 +23,8 @@ Jag siktar på VG.
 
 5. git restore, revert, reset.
 
+
+
 git restore
 
 Hämtar den senaste versionen av en fil från ditt repository och lägger i ditt working tree.
@@ -31,14 +33,22 @@ Scenario: Du har en fil, Spel.java, sparade i ditt repository. Samtidigt sitter 
 av ditt spel, men du har en dålig kväll och koden fungerar inte. Du har rört till det så mycket i din kod att du önskar inget
 annat än att få tillbaka din senaste version av Spel.java. git restore är rätt verktyg. Förutsatt att dina (dåliga) ändringar
 i Spel.java ligger kvar i ditt working tree, skriv "git restore Spel.java", så hämtar Git din senaste version från ditt
-repository.
+repository. git status kommer vara "ren", det är inget du behöver commita.
+
+
 
 git revert
 
 Gör en ny commit som ångrar en redan gjort commit
 
 Scenario: Tänk scenariot ovan med Spel.java att du av någon outgrundligt dum anledning ändå commitade ändringarna med
-din trasiga kod. Inte bara förströde du din kod, du commitade den också. 
-
-Scenario:
+din trasiga kod. Inte bara förstörde du din kod, du commitade den också. Men lugn, git revert kan rädda kvällen.
+Först, skriva "git log --oneline" för att få den 7-tecken långa hashcode som hör till den commit du vill ångra. Sedan,
+skriv "git revert <hashcode>". Din git revert kommer att loggas och dyka upp i git log. git status kommer vara "ren", det
+är inget du behöver commita.
   
+
+
+git reset
+
+
