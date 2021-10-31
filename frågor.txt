@@ -1,6 +1,6 @@
 1. När använder man add respektive commit?
 Svar:  "git add" lägger till en ändring i en fil till "staging area", men påverkar ej repository.
-"git commit" är det kommando som gör att ändringen på filen faktiskt sparas.
+"git commit" är det kommando som gör att ändringen på filen faktiskt sparas som en ny version i repository.
 
 2. När använder man pull respektive push?
 Svar: "git pull" används för att hämta den senaste versionen av en fil (eller filer) från ett publikt repository till
@@ -11,9 +11,14 @@ ditt lokala repository. Kommandot både fetch och merge med ditt lokala reposito
 Svar: "git status" är användbart i ett par olika situationer. I stort ger det information vilken gren (branch) man är på samt
 om den är uppdaterad. Man kan se om man har gjort ändringar i en fil som ej har sparats i sitt lokala repository. 
 Även icke-följda filer (untracked) dyker upp på "git status".
-"git log" ger information om de commits man har gjort till sitt lokala repository. Vem som har gjort commit:en, när det gjorts
-och med ett unikt ID. Commit-meddelanden visas också för att ge en bild över vad som ändrats vid de olika commitarna.
+"git log" ger information om de commits man har gjort till sitt lokala repository. Det inkluderar vem som har gjort commit:en, 
+när de gjorts och varje commit visas med ett unikt ID. Commit-meddelanden visas också för att ge en bild över vad som ändrats 
+vid de olika commitarna.
 
 4. Hur kan man formulera sig i sina commit-meddelanden?
 Svar: Man skriver i klartext, inget speciellt format. Var kort och koncis för att enkelt kunna följa uppdateringshistoriken.
 T.ex. "added class Player".
+
+Jag siktar på VG.
+
+5. git restore, revert, reset.
