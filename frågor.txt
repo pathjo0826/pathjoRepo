@@ -22,3 +22,11 @@ T.ex. "added class Player".
 Jag siktar på VG.
 
 5. git restore, revert, reset.
+
+git restore
+Scenario: Du har en fil, Spel.java, sparade i ditt repository. Samtidigt sitter du och jobbar med förbättringar
+av ditt spel, men du har en dålig kväll och koden fungerar inte. Du har rört till det så mycket i din kod att du önskar inget
+annat än att få tillbaka din senaste version av Spel.java. git restore är rätt verktyg. Skriv "git restore Spel.java" så
+hämtar Git din senaste version från ditt repository.
+
+  
