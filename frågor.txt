@@ -68,3 +68,11 @@ git reset --mixed kommer staging area att återställas till senaste commit:en. 
 förbättringar i Spel.java. instruktion.txt kommer bli en "untracked file" eftersom den i senaste commit:en inte existerade.
 Du kommer dock inte förlora filen från datorn.
 
+git reset --soft: Återställer endast repository och lämnar staging area- samt working directory helt ifred.
+Scenario: git reset --soft är svårast att demonstrera. Tänk så här: Jag har precis skapat en ny textfil. Jag updaterar den
+en, två och tre gånger så att jag har totalt fyra versioner som jag enkelt kan se skillnaden på. Jag har gjort tre commits och 
+den fjärde (och senaste) versionen ligger endast i staging area. Nu gör jag en git reset --soft (utan tillägg). Därefter pushar
+jag mitt repo till GitHub. Jag har med git reset --soft återställt mitt repository till en version tidigare så att på GitHub
+ligger version 3 av textfilen. På min dator, fortfarande i staging area, ligger version 4. git reset --soft rörde alltså inte
+mitt staging area.
+
