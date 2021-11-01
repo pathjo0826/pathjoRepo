@@ -29,10 +29,10 @@ git restore
 
 Hämtar den senaste versionen av en fil från ditt repository och lägger i ditt working tree.
 
-Scenario: Du har en fil, Spel.java, sparade i ditt repository. Samtidigt sitter du och jobbar med förbättringar
+Scenario: Du har en fil, Spel.java, sparad i ditt repository. Samtidigt sitter du och jobbar med förbättringar
 av ditt spel, men du har en dålig kväll och koden fungerar inte. Du har rört till det så mycket i din kod att du önskar inget
 annat än att få tillbaka din senaste version av Spel.java. git restore är rätt verktyg. Förutsatt att dina (dåliga) ändringar
-i Spel.java ligger kvar i ditt working tree, skriv "git restore Spel.java", så hämtar Git din senaste version från ditt
+i Spel.java ligger kvar i ditt working tree, kör "git restore Spel.java". Git hämtar din senaste version från ditt
 repository. git status kommer vara "ren", det är inget du behöver commita.
 
 
@@ -41,8 +41,8 @@ git revert
 
 Gör en ny commit som ångrar en redan gjort commit
 
-Scenario: Tänk scenariot ovan med Spel.java att du av någon outgrundligt dum anledning ändå commitade ändringarna med
-din trasiga kod. Inte bara förstörde du din kod, du commitade den också. Men lugn, git revert kan rädda kvällen.
+Scenario: Tänk scenariot ovan med Spel.java igen. Den här gången har du av någon outgrundligt dum anledning ändå commitat
+ändringarna med din trasiga kod. Inte bara förstörde du din kod, du commitade den också. Men lugn, git revert kan rädda kvällen.
 Först, skriva "git log --oneline" för att få den 7-tecken långa hashcode som hör till den commit du vill ångra. Sedan,
 skriv "git revert <hashcode>". Du har nu ångrat din tanklösa commit och ditt repository är tillbaka med versionen innan.
 Din git revert kommer att loggas och dyka upp i git log. git status kommer vara "ren", det är inget mer du behöver commita.
@@ -69,10 +69,14 @@ förbättringar i Spel.java. instruktion.txt kommer bli en "untracked file" efte
 Du kommer dock inte förlora filen från datorn.
 
 git reset --soft: Återställer endast repository och lämnar staging area- samt working directory helt ifred.
-Scenario: git reset --soft är svårast att demonstrera. Tänk så här: Jag har precis skapat en ny textfil. Jag updaterar den
-en, två och tre gånger så att jag har totalt fyra versioner som jag enkelt kan se skillnaden på. Jag har gjort tre commits och 
-den fjärde (och senaste) versionen ligger endast i staging area. Nu gör jag en git reset --soft (utan tillägg). Därefter pushar
-jag mitt repo till GitHub. Jag har med git reset --soft återställt mitt repository till en version tidigare så att på GitHub
-ligger version 3 av textfilen. På min dator, fortfarande i staging area, ligger version 4. git reset --soft rörde alltså inte
-mitt staging area.
+Scenario: git reset --soft är svårast att demonstrera. Tänk så här: Jag har precis skapat en ny textfil - myBestRecipes.txt.
+Jag updaterar den en, två och tre gånger så att jag har totalt fyra versioner som jag enkelt kan se skillnaden på. Jag har 
+gjort tre commits och den fjärde (och senaste) versionen ligger endast i staging area. Av någon anledning kommer jag på att 
+den första versionen var den bästa versionen och jag vill ha tillbaka den. Om jag kan få fram commit-ID:t (hint: git log) för den
+versionen kommer jag med hjälp av en git reset --soft resa tillbaka i tiden i mitt repository.
+Skriv "git reset --soft <commit-ID>. 
+Det här skriver om historien! Om man kör git log kommer man se att version två och tre är borta ur historien, version ett är
+den version som finns i ditt repository. En push till GitHub kommer ge dig tillgång till version ett av myBestReceipes.txt igen.
+Värt att notera är att i ditt staging area ligger version 4 kvar. En git reset --soft påverkar alltså endast ditt repo, ej
+working directory eller staging area.
 
